@@ -39,4 +39,10 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(Map.of("error", ex.getMessage()));
     }
+    
+    @ExceptionHandler(RentalNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleRentalNotFound(RentalNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Map.of("error", ex.getMessage()));
+    }
 }
